@@ -146,8 +146,8 @@ exec_always "autotiling"
 #enables discord rich music presence.
 exec_always "musicpresence"
 #Wallpaper support
-exec "swaybg --output=DP-2 -i ~/downloads/ratm.png"
-exec "swaybg --output=DP-3 -i ~/downloads/snake.png"
+exec "swaybg --output=DP-2 -i ~/pictures/ratm.png"
+exec "swaybg --output=DP-3 -i ~/pictures/snake.png"
 #Start up lxsession for the polkit.
 exec "lxsession"
 #Custom script to send notis based on music change
