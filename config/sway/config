@@ -1,0 +1,188 @@
+#My sway(fx) Config!!! 
+#Very boring, but it works for me.
+#See README for more info.
+
+
+#set the mod to the super key(the only correct mod).
+set $mod Mod4
+
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec foot
+
+# kill focused window
+bindsym $mod+q kill
+
+#start app launcher(rofi with a fancy theme)
+bindsym $mod+d exec ~/.config/rofi/launchers/type-1/launcher.sh
+
+
+# change focus 
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+
+#support for volume control with external devices
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
+bindsym XF86AudioMute exec --no-startup-id pamixer -t
+#support for media control with external devices
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+#Focus control with arrow keys as well.
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+#Bindings for media control with my logitech mouse(used remapper to map keys on mouse)
+bindsym F11 exec "playerctl play-pause"
+bindsym F12 exec "playerctl next"
+bindsym F10 exec "playerctl previous"
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+#Powermenu keybind for easy access
+bindsym $mod+Shift+e exec "~/.config/rofi/powermenu/type-3/powermenu.sh"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the windowâs width.
+        # Pressing right will grow the windowâs width.
+        # Pressing up will shrink the windowâs height.
+        # Pressing down will grow the windowâs height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+#Here we disable the default bar, 
+#I opt for waybar instead due to its extensive customizability.
+bar {
+   mode invisible
+}
+#Start the waybar up!
+exec "waybar"
+#notification daemon
+exec "swaync"
+#Autotiling adds automatic tiling to sway, much like dynamic tilers.
+exec_always "autotiling" 
+#enables discord rich music presence.
+exec_always "musicpresence"
+#Wallpaper support
+exec "swaybg --output=DP-2 -i ~/downloads/ratm.png"
+exec "swaybg --output=DP-3 -i ~/downloads/snake.png"
+#Start up lxsession for the polkit.
+exec "lxsession"
+#Custom script to send notis based on music change
+#NOTE:No longer in use, didn't like the constant notis.
+#exec "~/scripts/music/get_spotify_status"
+
+#Add some gaps for my own personal prefs...no functional purpose at all.
+gaps inner 7px 
+gaps outer 5px
+gaps bottom 9px
+
+
+#Set up my monitors
+output DP-2 pos 0 0 res 1920x1080@185hz
+output DP-3 pos 1920 0 res 1920x1080@60hz
+
+#A bit of keybindings for moving workspace
+bindsym $mod+shift+Left move workspace to output left
+bindsym $mod+shift+Right move workspace to output right
+bindsym $mod+shift+Up move workspace to output up
+bindsym $mod+shift+Down move workspace to output down
+
+#Gruvbox themed border colors!
+for_window [class=".*"] border pixel 1
+client.focused          #B8BB26 #B8BB26 #2e3440 #B8BB26 #B8BB26
+client.focused_inactive #4c566a #3b4252 #d8dee9 #3b4252 #3b4252
+client.unfocused        #a89984 #3b4252 #d8dee9 #3b4252 #3b4252
+client.urgent           #bf616a #bf616a #eceff4 #bf616a #bf616a
+client.background       #2e3440
+
+
+#Eye Candy with swayfx
+
+blur enable
+blur_radius 2
+
+corner_radius 9
+

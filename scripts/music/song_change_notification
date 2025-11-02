@@ -1,0 +1,25 @@
+#!/bin/zsh
+
+#Script to get data for a song and send out a notification containing the metadata
+#Deps: playerctl, curl, notify-send
+
+
+
+#get metadata
+art=$(playerctl --player=hifirs metadata mpris:artUrl)
+song_name=$(playerctl --player=hifirs metadata title)
+song_artist=$(playerctl --player=hifirs metadata artist)
+
+#try to download the song art with curl
+curl --output ~/scripts/music/art $art
+
+
+#send out notification
+notify-send --urgency=low --app-name="Song Change!" -t 2000 -i ~/scripts/music/art $song_artist $song_name
+
+#echo current song to file
+echo $song_name > ~/scripts/music/song_playing
+
+
+#del art png
+rm ~/scripts/music/art

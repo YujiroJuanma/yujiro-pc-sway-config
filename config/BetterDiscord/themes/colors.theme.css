@@ -1,0 +1,107 @@
+/**
+ * @name Solarized Dark OKLCH
+ * @author Your Name
+ * @version 1.0.0
+ * @description A BetterDiscord theme using the Solarized Dark color palette with OKLCH values.
+ */
+
+:root {
+  /* =====================
+   * Solarized Dark Palette
+   * Converted to OKLCH for perceptual uniformity
+   * ===================== */
+
+  /* Monotone Base Colors */
+  --solar-base03: oklch(20% 0.057 230);    /* #002b36 */
+  --solar-base02: oklch(27% 0.058 227);    /* #073642 */
+  --solar-base01: oklch(45% 0.063 221);    /* #586e75 */
+  --solar-base00: oklch(50% 0.056 222);    /* #657b83 */
+  --solar-base0:  oklch(60% 0.052 221);    /* #839496 */
+  --solar-base1:  oklch(66% 0.045 220);    /* #93a1a1 */
+  --solar-base2:  oklch(93% 0.024 102);    /* #eee8d5 */
+  --solar-base3:  oklch(96% 0.019 99);     /* #fdf6e3 */
+
+  /* Accent Colors */
+  --solar-yellow:  oklch(61% 0.187 90);    /* #b58900 */
+  --solar-orange:  oklch(56% 0.165 59);    /* #cb4b16 */
+  --solar-red:     oklch(49% 0.141 33);    /* #dc322f */
+  --solar-magenta: oklch(47% 0.161 332);   /* #d33682 */
+  --solar-violet:  oklch(45% 0.166 280);   /* #6c71c4 */
+  --solar-blue:    oklch(56% 0.158 250);   /* #268bd2 */
+  --solar-cyan:    oklch(63% 0.129 203);   /* #2aa198 */
+  --solar-green:   oklch(64% 0.179 135);   /* #859900 */
+
+  /* =====================
+   * Remap Discord Variables
+   * ===================== */
+
+  /* Main background and text */
+  --background-primary: var(--solar-base03);
+  --background-secondary: var(--solar-base02);
+  --background-tertiary: var(--solar-base02);
+  --header-primary: var(--solar-base0);
+  --header-secondary: var(--solar-base01);
+  --text-normal: var(--solar-base0);
+  --text-muted: var(--solar-base01);
+
+  /* User Interface elements */
+  --interactive-normal: var(--solar-base00);
+  --interactive-hover: var(--solar-base0);
+  --interactive-active: var(--solar-base1);
+  --interactive-muted: var(--solar-base01);
+  --deprecated-card-bg: var(--solar-base02);
+  --deprecated-card-bg-hover: var(--solar-base01);
+
+  /* Accent colors */
+  --brand-experiment: var(--solar-blue);
+  --link: var(--solar-blue);
+  --channels-default: var(--solar-base01);
+  --channel-text-area-placeholder: var(--solar-base01);
+  --mention-background: oklch(56% 0.158 250 / 0.15); /* A translucent blue */
+  --mention-foreground: var(--solar-blue);
+
+  /* Message elements */
+  --background-message-hover: oklch(35% 0.05 220 / 0.1);
+  --message-box-input-background: var(--solar-base02);
+
+  /* Code blocks and syntax highlighting */
+  --background-code: var(--solar-base02);
+  --background-code-highlight: oklch(35% 0.05 220 / 0.1);
+  --header-bar-background: var(--solar-base03);
+}
+
+/* =====================
+ * Additional Customizations
+ * Fine-tuning specific UI elements
+ * ===================== */
+
+/* Server list background */
+.guilds-2JjMmN {
+  background-color: var(--solar-base03);
+}
+
+/* Text channels background */
+.sidebar-1tnWFu {
+  background-color: var(--solar-base02);
+}
+
+/* User panel background */
+.panels-j1Uci_ {
+  background-color: var(--solar-base02);
+}
+
+/* Message box */
+.message-2o-sjf,
+.editor-2MwZwh {
+  background-color: var(--solar-base02);
+}
+
+/* Scrollbar styling */
+.theme-dark ::-webkit-scrollbar-thumb {
+  background-color: var(--solar-base01) !important;
+}
+
+.theme-dark ::-webkit-scrollbar-track-piece {
+  background-color: var(--solar-base02) !important;
+}
+

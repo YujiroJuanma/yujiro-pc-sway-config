@@ -1,0 +1,151 @@
+/* My style sheet for waybar!
+*  Follows the gruvbox color palette.
+*/
+
+
+* {
+  padding: 0;
+  margin: 0;
+  min-height: 0;
+  border-radius: 0px;
+  border: none;
+  text-shadow: none;
+  transition: none;
+  box-shadow: none;
+}
+
+window#waybar {
+  background: #282828;
+  border: 1px solid #928374;
+  padding: 3px 0;
+}
+
+window#waybar.hidden {
+  opacity: 0.98;
+}
+
+#window,
+#network,
+#wireplumber,
+#clock,
+#memory,
+#cpu,
+#custom-notification,
+#mpris {
+  font-family: CaskaydiaMono Nerd Font;
+  font-size: 10px;
+  color: #282828;
+  margin-right: 6px;
+  margin-left: 6px;
+  padding: 3px 7px;
+  border-bottom: 2px solid;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+/*
+ *notification module.
+ */
+#custom-notification {
+  color: #458588;
+}
+/* ======================================================== */
+/* workspaces module */
+/* ======================================================== */
+#workspaces {
+  font-family: CaskaydiaMono Nerd Font;
+  font-size: 10px;
+  font-weight: 600;
+  color: #458588;
+  padding: 3px 7px;
+  margin-top: 2px;
+  margin-right: 2px;
+  margin-left: 2px;
+  padding: 0;
+}
+
+#workspaces button {
+  color: #83a598;
+  margin-bottom: 3px;
+  margin-top: 3px;
+  margin-right: 1px;
+  margin-left: 1px;
+  min-width: 20px;
+  padding: 2 2px;
+  border-bottom: 2px solid #282828; /*Minor hack to make the buttons the same height no matter the status */
+}
+
+#workspaces button.hover {
+  background: #79740e;
+}
+
+#workspaces button.focused {
+  background: #3c3836;
+  border-bottom: 2px solid #458588;
+}
+
+/* ======================================================== */
+/* Network module */
+/* ======================================================== */
+#network {
+  color: #b16286;
+  border-bottom-color: #b16286;
+}
+
+#network.disconnected {
+  color: #cc241d;
+  border-bottom-color: #cc241d;
+}
+
+/* ======================================================== */
+/* Audio module */
+/* ======================================================== */
+#wireplumber {
+  color: #d79921;
+  border-bottom-color: #d79921;
+}
+
+#wireplumber.muted {
+  color: #ea6962;
+  border-bottom-color: #ea6962;
+}
+
+/* ======================================================== */
+/* backlight */
+/* ======================================================== */
+#backlight {
+  color: #d8a657;
+  border-bottom-color: #d8a657;
+}
+
+/* ======================================================== */
+/* clock */
+/* ======================================================== */
+#clock {
+  color: #fe8019;
+  border-bottom-color: #8ec07c;
+}
+
+/* ======================================================== */
+/* tray */
+/* ======================================================== */
+#tray {
+  padding: 3px 7px;
+  margin-left: 6px;
+  margin-right: 6px;
+  border-bottom-color: #83a598;
+}
+
+/* ======================================================== */
+/* Media player */
+/* ======================================================== */
+#mpris {
+  color: #689d6a;
+  border-bottom-color: #689d6a;
+}
+
+#mpris:hover {
+  color: #98971a;
+  border-bottom-color: #98971a;
+}
+

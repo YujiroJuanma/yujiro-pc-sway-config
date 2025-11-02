@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+while true; do 
+    if [[ $(playerctl --player=hifirs metadata title) != $(cat ~/scripts/music/song_playing) ]]; then
+	    if [[ $(playerctl --player=hifirs status) == "Playing" ]]; then
+            ~/scripts/music/song_change_notification
+	    fi
+    fi
+    sleep 1
+done
